@@ -37,7 +37,7 @@ class Usuarios extends Controller
     public function edit($user_id)
     {
         $user = User::find($user_id);        
-        if(isset($user)) //Revisa que el usuario exista
+        if(isset($user)) //Revisa que el usuario exista --
         {
             $pass = Crypt::decrypt($user->password,0);
             return view('usuarios.form',['user'   =>  $user]);
@@ -63,6 +63,7 @@ class Usuarios extends Controller
                 'password'                  => 'required|min:8|confirmed',
                 'password_confirmation'     => 'required'
             ]);
+
 
             $user = User::find($user_id);
             $user->name = $request->nombre;
