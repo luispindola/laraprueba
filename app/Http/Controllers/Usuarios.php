@@ -103,5 +103,6 @@ class Usuarios extends Controller
         {
             throw new ModelNotFoundException();
         }
-    }    
+    }
+    
 }
