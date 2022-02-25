@@ -89,7 +89,7 @@ class Usuarios extends Controller
         {
             throw new ModelNotFoundException();
         }
-    }
+    } 
 
     public function destroy($user_id)
     {
