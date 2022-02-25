@@ -75,7 +75,7 @@ class Usuarios extends Controller
         else
         {
             throw new ModelNotFoundException();
-        }
+        } 
     }
 
     public function show($user_id)
