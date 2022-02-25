@@ -14,7 +14,7 @@ class Usuarios extends Controller
     {   //MUESTRA FORMULARIO VACIO
         return view('usuarios.form');
     }
-
+    
     public function store(Request $request)
     {   //RECIBE EL POST DEL CREATE        
         $request->validate([
