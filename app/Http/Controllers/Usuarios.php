@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
 use Illuminate\Database\Eloquent\ModelNotFoundException; 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use App\Models\User;
 
 class Usuarios extends Controller
@@ -27,7 +29,7 @@ class Usuarios extends Controller
         $user = User::create([
             'name'          =>  $request->nombre,
             'email'         =>  $request->email,
-            'password'      =>  Crypt::encryptString($request->password)
+            'password'      =>  Hash::make($request->password)
         ]);
         $user->save();
 
@@ -68,7 +70,7 @@ class Usuarios extends Controller
             $user = User::find($user_id);
             $user->name = $request->nombre;
             $user->email = $request->email;
-            $user->password = Crypt::encryptString($request->password);
+            $user->password = Hash::make($request->password);
             $user->save();
 
             return redirect('/')->with(['mensaje' =>  'Se editó usuario correctamente','tipo' =>  'info']);

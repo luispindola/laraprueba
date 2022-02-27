@@ -56,7 +56,7 @@
 		  <label for="password" class="form-label">Contraseña:</label>
 		  <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" 
 		  name="password"
-		  value="@if(isset($user)){{Crypt::decrypt($user->password,0)}}@else{{old('password')}}@endif" 
+		  value="{{old('password')}}" 
 		  placeholder="Contraseña">
 		  @error('password')<div class="alert alert-danger">{{ $message }}</div>@enderror
 		</div>
@@ -65,7 +65,7 @@
 		  <label for="password_confirmation" class="form-label">Confirmar Contraseña:</label>
 		  <input type="password" class="form-control @error('password2') is-invalid @enderror" id="password_confirmation" 
 		  name="password_confirmation"
-		  value="@if(isset($user)){{Crypt::decrypt($user->password,0)}}@else{{old('password_confirmation')}}@endif" 
+		  value="{{old('password_confirmation')}}" 
 		  placeholder="Confirmar Contraseña">
 		  @error('password_confirmation')<div class="alert alert-danger">{{ $message }}</div>@enderror
 		</div>

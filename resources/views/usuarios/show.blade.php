@@ -15,7 +15,7 @@
 
 		<div class="mb-3">
 		  <label for="password" class="form-label">Contraseña:</label>
-		  <p><strong>{{Crypt::decrypt($user->password,0)}}</strong></p>
+		  <p><strong>********</strong></p>
 		</div>
 
 		<form name="form1" 
