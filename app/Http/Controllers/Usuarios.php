@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 
+//Excel
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class Usuarios extends Controller
 {
     public function create()    
@@ -108,4 +112,8 @@ class Usuarios extends Controller
         }
     }
     
+    public function prueba_excel()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
 }
